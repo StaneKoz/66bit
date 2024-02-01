@@ -1,0 +1,35 @@
+@import '../root/Themes.scss';
+
+.container {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  padding-top: 30px;
+  
+  &.active {
+    display: flex;
+  }
+}
+
+.spinner {
+  width: 43px;
+  height: 43px;
+  border: 5px solid rgb(var(--text-color));
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,116 @@
+
+.page {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.pageContainer {
+  width: 100%;
+  flex-grow: 1;
+  background-color: rgba(var(--second-color), 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttonContainer {
+  padding: 0 10px;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    opacity: 0.4;
+
+    @media(max-width: 768px) {
+      opacity: 1;
+    }
+  }
+
+  &:hover::after {
+    opacity: 0.8;
+  }
+}
+
+.buttonContainer_light::after {
+  background: url('../../static/backgrounds/sun-bgc.png') no-repeat;
+  background-color: rgba(69,75,84, 0.1);
+  background-size: cover;
+}
+
+.buttonContainer_dark::after {
+  background: url('../../static/backgrounds/moon-bgc.jpg') no-repeat;
+  background-size: cover;
+}
+
+.buttonContainer_blue::after {
+  background: url('../../static/backgrounds/sea-bgc.jpg') no-repeat;
+  background-size: cover;
+}
+
+.button {
+  position: relative;
+  z-index: 3;
+  width: 400px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 1px;
+
+  &:not(:last-of-type) {
+    margin-bottom: 20px;
+  }
+
+  .btnText {
+    margin-right: 10px;
+  }
+
+  .btnIcon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.button_light {
+  border: 2px solid rgba(255,151,0, 1);
+  color: rgb(255, 255, 255);
+  background-color: rgba(255,151, 0, 0.8);
+}
+
+.button_dark {
+  border: 2px solid rgb(58, 62, 68);
+  color: rgb(252,247,203);
+  background-color: rgba(69,75,84, 0.95)
+}
+
+.button_blue {
+  border: 2px solid rgb(95,155,235);
+  color: rgb(110,180,240);
+  background-color: rgb(230, 232, 237);;
+}

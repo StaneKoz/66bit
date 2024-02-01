@@ -1,0 +1,32 @@
+:root {
+  --main-color-light: 206, 240, 227;
+  --second-color-light: 255, 255, 255;
+  --text-color-light: 10, 10, 10;
+
+  --main-color-dark: 25, 25, 25;
+  --second-color-dark: 111, 103, 120;
+  --text-color-dark: 209, 187, 46;
+
+  --main-color-blue: 34, 22, 105;
+  --second-color-blue: 41, 67, 153;
+  --text-color-blue: 201, 201, 201;
+}
+
+[data-theme='light'] {
+  --main-color:  var(--main-color-light);
+  --second-color: var(--second-color-light);
+  --text-color: var(--text-color-light);
+}
+
+
+[data-theme='dark'] {
+  --main-color:  var(--main-color-dark);
+  --second-color: var(--second-color-dark);
+  --text-color: var(--text-color-dark);
+}
+
+[data-theme='blue'] {
+  --main-color:  var(--main-color-blue);
+  --second-color: var(--second-color-blue);
+  --text-color: var(--text-color-blue);
+}

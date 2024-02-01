@@ -1,0 +1,28 @@
+@import './Themes.scss';
+
+.page {
+  color: rgb(var(--text-color));
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 400;
+  background-color: rgba(var(--main-color), $alpha: 1);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+
+  @media(max-width: 768px) {
+    padding-top: 0px;
+    font-size: 14px;
+  }
+}
+
+.main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+  @media(max-width: 768px) {
+    padding-bottom: 50px;
+  }
+}

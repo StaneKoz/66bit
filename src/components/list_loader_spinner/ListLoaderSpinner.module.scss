@@ -1,0 +1,32 @@
+@import '../root/Themes.scss';
+
+.container {
+  display: none;
+
+  &.active {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    display: flex;
+    row-gap: 30px;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position-x: 0%;
+  }
+
+  100% {
+    background-position-x: 100%;
+  }
+}
+
+.item {
+  background: linear-gradient(90deg, rgba(var(--text-color), 0.6), rgba(var(--text-color), 0.4));
+  border-radius: 2px;
+  height: 150px;
+  flex: 0 0 90%;
+  background-size: 200%;
+  animation: gradient 0.5s infinite;
+}
