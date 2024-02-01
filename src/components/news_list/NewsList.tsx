@@ -5,6 +5,7 @@ import ListsLoaderSpinner from '../list_loader_spinner/ListsLoaderSpinner';
 import style from './NewsList.module.scss';
 import ListScrollSpinner from '../list_scroll_spinner/ListScrollSpinner';
 import SwiperLoader from '../swiperLoader/SwiperLoader';
+import RefreshButton from '../refresh_button/RefreshButton';
 
 const limitItems = 10;
 const XTotalCount = 30;
@@ -14,6 +15,7 @@ const NewsList = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [loading, setLoading] = useState<boolean>(true);
   const [fetching, setFetching] = useState<boolean>(true);
+  const [visibleRefreshBtn, setVisibleRefreshBtn] = useState<boolean>(false);
 
   useEffect(() => {
     document.addEventListener('scroll', scrollHandler);
@@ -21,7 +23,7 @@ const NewsList = () => {
     return function () {
       document.removeEventListener('scroll', scrollHandler);
     }
-  }, [news]);
+  }, [news, visibleRefreshBtn]);
 
   useEffect(() => {
     if (fetching) {
@@ -58,10 +60,20 @@ const NewsList = () => {
       setFetching(true);
       setLoading(true);
     }
+    if (e.target.documentElement.scrollTop > window.innerHeight && !visibleRefreshBtn) {
+      setVisibleRefreshBtn(true);
+      setTimeout(() => {
+        setVisibleRefreshBtn(false)
+      }, 3000)
+    }
   };
 
   return (
     <div className={[style.newsContainer, '_container'].join(' ')}>
+      <RefreshButton loading={loading} setCurrentPage={setCurrentPage} setLoading={setLoading} setFetching={setFetching}
+        visible={visibleRefreshBtn}
+        setVisible={setVisibleRefreshBtn}
+      />
       <SwiperLoader fetching={fetching} setFetching={setFetching} setCurrentPage={setCurrentPage}
         loading={loading}
         setLoading={setLoading} />
